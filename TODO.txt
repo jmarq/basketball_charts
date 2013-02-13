@@ -1,0 +1,24 @@
+So what's going on here?
+*************************
+BASKETBALL CHARTS
+*************************
+
+chart idea #1:
+    create 82(66?) game array for each team, representing a season
+	in each array slot there will be an integer representing the teams level above .500
+	    after that game. [0] will be -1 if the team loses 1st game, 1 if win. [1] will be 0 if team splits...
+	
+	group teams by division.
+	plot teams level as line chart, plot common division members on same chart.
+	
+	how to get array for each team?
+	    go to each teams schedule/result webpage
+		or, go to list of all games from that season.
+	
+	what about....
+	    python script that loads html for entire schedule/results page
+		   goes game by game through the table
+		   determines winning team and losing team's name
+		   pushes a W or L (or pushes the new level above .500, by looking at previous and adding 1 or -1)
+		   saves entire set as json file
+		   html/javascript/highcharts frontend displays graphs.
