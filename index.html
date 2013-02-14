@@ -25,11 +25,8 @@ alert(results['Chicago Bulls']);
 
 var seriesList=[];
 for(var i=0; i<30; i+=1){
-alert(i);
 teamName=Object.keys(results)[i];
-alert(teamName);
 series=results[teamName];
-alert(series);
 seriesList.push({ name: teamName, data : series });
 }
 	
@@ -39,7 +36,7 @@ var chartOptions={
         chart: {
             renderTo: 'graphWrap',
             type: 'line',
-			height: 600
+			height: 650
         },
         title: {
             text: 'Games above .500 over time'
