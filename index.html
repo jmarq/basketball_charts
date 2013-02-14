@@ -4,15 +4,47 @@
 	<meta charset="UTF-8">
 	<title>NBA Basketball</title>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	
 </head>
+
+
 <body>
 
+<div id="graphWrap"></div>
 	
 </body>
+
+
+
 <script type="text/javascript">
 
 var filename="./leagueResults.json";
-var loaded=$.getJSON(filename, function(data){alert(data['Chicago Bulls'])});
+var loaded=$.getJSON(filename, function(results){
+alert(results['Chicago Bulls']);
+var chart1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'charto',
+            type: 'line'
+        },
+        title: {
+            text: 'Games above .500 over time'
+        },
+        xAxis: {
+           
+        },
+        yAxis: {
+            title: {
+                text: 'Games over .500'
+            }
+        },
+        series: [{
+            name: 'Bulls',
+            data: results['Chicago Bulls']
+        }]
+    });
+
+});
 
 
 </script>
