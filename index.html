@@ -21,7 +21,7 @@
 
 var filename="./leagueResults.json";
 var loaded=$.getJSON(filename, function(results){
-alert(results['Chicago Bulls']);
+//alert(results['Chicago Bulls']);
 
 var seriesList=[];
 for(var i=0; i<30; i+=1){
@@ -30,7 +30,7 @@ series=results[teamName];
 seriesList.push({ name: teamName, data : series });
 }
 	
-alert(seriesList);
+//alert(seriesList);
 	
 var chartOptions={
         chart: {
