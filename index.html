@@ -5,6 +5,7 @@
 	<title>NBA Basketball</title>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="./nbaInfo.js"></script>
 	
 </head>
 
@@ -23,50 +24,17 @@ var filename="./leagueResults.json";
 var loaded=$.getJSON(filename, function(results){
 //alert(results['Chicago Bulls']);
 
-//team colors for graph, maybe should be stored in .json file.  gotta edit the .py file for that.
-teamColors={};
-teamColors['Atlanta Hawks']=["#FF2F00","#FFEA00"];
-teamColors['Boston Celtics']=["#0A5708","#EEEEEE"];
-teamColors['Brooklyn Nets']=["#050505","#DDDDDD"];
-teamColors['Charlotte Bobcats']=["#002C8C","#FF8800"];
-teamColors['Chicago Bulls']=["#BD1515","#000000"];
 
-teamColors['Cleveland Cavaliers']=["#7A0C24","#DBB20B"];
-teamColors['Dallas Mavericks']=["#1644CC","#159620"];
-teamColors['Denver Nuggets']=["#4BB4D1","#F5D505"];
-teamColors['Detroit Pistons']=["#0505F5","#F52105"];
-teamColors['Golden State Warriors']=["#0700C9","#EDED00"];
 
-teamColors['Houston Rockets']=["#FF0000","#F2F2F2"];
-teamColors['Indiana Pacers']=["#EBEB02","#181073"];
-teamColors['Los Angeles Clippers']=["#3115E8","#E81515"];
-teamColors['Los Angeles Lakers']=["#511275","#FAD016"];
-teamColors['Memphis Grizzlies']=["#363869","#6AAFBD"];
 
-teamColors['Miami Heat']=["#800909","#000000"];
-teamColors['Milwaukee Bucks']=["#133D00","#870C0C"];
-teamColors['Minnesota Timberwolves']=["#0C1B87","#114A11"];
-teamColors['New Orleans Hornets']=["#1F62FF","#FAf870"];
-teamColors['New York Knicks']=["#FF8800","#2200FF"];
 
-teamColors['Oklahoma City Thunder']=["#0052E0","#E08E00"];
-teamColors['Orlando Magic']=["#1919E6","#FFFFFF"];
-teamColors['Philadelphia 76ers']=["#020BF7","#FF0000"];
-teamColors['Phoenix Suns']=["#7A1DD1","#E86D15"];
-teamColors['Portland Trail Blazers']=["#0D0C0C","#D41E11"];
-
-teamColors['Sacramento Kings']=["#4A1985","#FFFFFF"];
-teamColors['San Antonio Spurs']=["#87868A","#000000"];
-teamColors['Toronto Raptors']=["#DB1A2E","#BB61D4"];
-teamColors['Utah Jazz']=["#110C6B","#095713"];
-teamColors['Washington Wizards']=["#11118C","#EB2337"];
 
 
 var seriesList=[];
 for(var i=0; i<30; i+=1){
 teamName=Object.keys(results)[i];
 series=results[teamName];
-seriesList.push({ name: teamName, data : series , marker: {fillColor:teamColors[teamName][1]}, color: teamColors[teamName][0] });
+seriesList.push({ name: teamName, data : series , marker: {fillColor:nbaInfo.teamColors[teamName][1]}, color: nbaInfo.teamColors[teamName][0] });
 }
 	
 //alert(seriesList);
