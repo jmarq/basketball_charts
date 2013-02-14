@@ -63,7 +63,7 @@ teamColors['Washington Wizards']=["#11118C","#EB2337"];
 
 
 var seriesList=[];
-for(var i=0; i<15; i+=1){
+for(var i=0; i<30; i+=1){
 teamName=Object.keys(results)[i];
 series=results[teamName];
 seriesList.push({ name: teamName, data : series , marker: {fillColor:teamColors[teamName][1]}, color: teamColors[teamName][0] });
@@ -98,7 +98,8 @@ var chartOptions={
                 marker: {
                     enabled: true,
 					radius: 2
-                }
+                },
+				lineWidth:1
         
             }
         },
