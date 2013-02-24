@@ -14,6 +14,7 @@ chart idea #1:
 	how to get array for each team?
 	    go to each teams schedule/result webpage
 		or, go to list of all games from that season.
+		http://www.basketball-reference.com/leagues/NBA_2013_games.html
 	
 	what about....
 	    python script that loads html for entire schedule/results page
