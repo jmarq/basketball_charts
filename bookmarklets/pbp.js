@@ -24,8 +24,8 @@ var getPointIncrease=function(row,team){
 };
 
 
-var playTable=$("table.stats_table.no_highlight").last();
-var baseTime=-1*12*60;
+
+var baseTime=-1*12*60;//start negative so that we can just add minutes to begin every quarter including the first
 
 var getTime=function(row){
 	time=row.cells[0].innerHTML.split(":");
@@ -37,11 +37,29 @@ var getTime=function(row){
 
 };
 
+var whichTeam=function(row){
+	
+	scoringTeam="";
+	if(this.cells[2].innerHTML[0]=="+"){
+		scoringTeam="awayTeam";
+	}
+	else if(this.cells[4].innerHTML[0]=="+"){
+		scoringTeam="homeTeam";
+	}
+	
+	return(scoringTeam);
+	
+};
 
 
+//functions are defined for scraping individual rows
+
+
+var playTable=$("table.stats_table.no_highlight").last();
+//for each row, see if it's a new quarter or a scoring play. process scoring plays and adjust basetime accordingly.
 playTable.find("tr").each(function(){
 
-	if(this.id[0]=="q"){
+	if(this.id[0]=="q"){//is the game in regulation or overtime? is it a new quarter?
 		if(baseTime<47.9999*60){
 		baseTime+=(12*60);
 		}
@@ -50,17 +68,11 @@ playTable.find("tr").each(function(){
 		}
 	}
 	if(this.cells.length==6){
-		if(this.cells[2].innerHTML[0]=="+"){
-		scoringTeam="awayTeam";
-		playerObject=getScoringPlayer(this,scoringTeam);
-		alert(playerObject.name);
+		scoringTeam=whichTeam(this);//did anyone score, and who?
+		if(scoringTeam){
+			//do something for the scoring play here, someone scored
+			
 		}
-		else if(this.cells[4].innerHTML[0]=="+"){
-		scoringTeam="homeTeam";
-		playerObject=getScoringPlayer(this,scoringTeam);
-		alert(playerObject.name);
-		alert(getTime(this));
-		alert(getPointIncrease(this,scoringTeam));
 		
 		}
 	}
