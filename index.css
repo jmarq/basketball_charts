@@ -1,5 +1,6 @@
+
 body{
-  background-color:yellow;
+  background-color:#233;
   text-align:center;
   font-family:helvetica, arial, sans-serif;
 }
@@ -12,4 +13,13 @@ body div#graphWrap{
 
 body a{
   font-family:helvetica,arial, sans-serif;
+  text-shadow: 0px 0px 5px white;
+  font-size:1.3em;
 }
+
+body a:hover{
+  text-shadow: 0px 0px 8px red;
+}
+
+
+
