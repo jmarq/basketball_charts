@@ -1,8 +1,11 @@
 (function(){
-
-
+// this bookmarklet is obsolete now, because the play-by-play page it was based on has changed structure
+// it was used to scrape a play-by-play table, looking for rows where a team scored, and running code for that row
+//  for example, creating an array for each team of data points containing time when points were scored and number of points scored
+//    to create a line chart of game score over time
 
 var getScoringPlayer=function(row,team){
+	// who scored the points for the row's play?
 	var I;
 	if(team=="awayTeam"){
 	     I=1;
@@ -16,6 +19,7 @@ var getScoringPlayer=function(row,team){
 };
 
 var getPointIncrease=function(row,team){
+	// how many points were scored on the row's play?
 	var I;
 	if(team=="awayTeam"){I=2;}
 	else{I=4;}
@@ -38,7 +42,7 @@ var getTime=function(row){
 };
 
 var whichTeam=function(row){
-	
+	// which team scored, if any, on this row?
 	scoringTeam="";
 	if(this.cells[2].innerHTML[0]=="+"){
 		scoringTeam="awayTeam";
