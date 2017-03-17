@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2016-2017 NBA Scatter Plot</title>
+	<link rel="stylesheet" href="scatter.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.9/d3.min.js"></script>
+</head>
+<body>
+	<div class="controls">
+		<!-- 
+		["PF_RANK", "FGM_RANK", "FTA_RANK", "BLK", "MIN", "CFID", "TOV", "TEAM_ID", "FG3A_RANK", "REB", "TEAM_NAME", "REB_RANK", "CFPARAMS", "W_RANK", "FG3A", "AST", "FTM_RANK", "FG_PCT_RANK", "W_PCT_RANK", "PLUS_MINUS", "FG3M", "OREB", "L_RANK", "FT_PCT_RANK", "FGM", "PF", "PTS", "FGA", "FG3M_RANK", "FGA_RANK", "BLKA_RANK", "GP", "STL", "AST_RANK", "L", "PLUS_MINUS_RANK", "FTA", "W", "W_PCT", "DREB", "FTM", "PFD_RANK", "FT_PCT", "BLK_RANK", "PFD", "MIN_RANK", "OREB_RANK", "FG_PCT", "STL_RANK", "FG3_PCT_RANK", "FG3_PCT", "DREB_RANK", "TOV_RANK", "BLKA", "GP_RANK", "PTS_RANK"]
+		-->
+		<select name="x-axis" id="x-axis-select">
+			<option value="W"> Wins</option>
+			<option value="PTS">points/game</option>
+			<option value="BLK">blocks/game</option>
+			<option value="TOV">turnovers/game</option>
+			<option value="REB"> Rebounds/game</option>
+			<option value="FG3A">3pt FGA/game</option>
+			<option value="AST"> Assists/game</option>
+			<option value="PLUS_MINUS">+/-/game</option>
+			<option value="FG3M">3pt FGM/game</option>
+			<option value="OREB">Off. Rebounds/game</option>
+			<option value="FGM">FGM/game</option>
+			<option value="PF">Personal Fouls/game</option>
+			<option value="FGA">FGA/game</option>
+			<option value="STL">Steals/game</option>
+			<option value="L">Losses</option>
+			<option value="FTA">Free Throw Attempts/game</option>
+			<option value="DREB">Def. Rebounds/game</option>
+			<option value="FTM">Free Throws Made/game</option>
+			<option value="FT_PCT">Free Throw %</option>
+			<option value="FG_PCT">FG%</option>
+			<option value="FG3_PCT">3pt FG%</option>
+		</select>
+		<select name="y-axis" id="y-axis-select">
+			<option value="W"> Wins</option>
+			<option selected value="PTS">points/game</option>
+			<option value="BLK">blocks/game</option>
+			<option value="TOV">turnovers/game</option>
+			<option value="REB"> Rebounds/game</option>
+			<option value="FG3A">3pt FGA/game</option>
+			<option value="AST"> Assists/game</option>
+			<option value="PLUS_MINUS">+/-/game</option>
+			<option value="FG3M">3pt FGM/game</option>
+			<option value="OREB">Off. Rebounds/game</option>
+			<option value="FGM">FGM/game</option>
+			<option value="PF">Personal Fouls/game</option>
+			<option value="FGA">FGA/game</option>
+			<option value="STL">Steals/game</option>
+			<option value="L">Losses</option>
+			<option value="FTA">Free Throw Attempts/game</option>
+			<option value="DREB">Def. Rebounds/game</option>
+			<option value="FTM">Free Throws Made/game</option>
+			<option value="FT_PCT">Free Throw %</option>
+			<option value="FG_PCT">FG%</option>
+			<option value="FG3_PCT">3pt FG%</option>
+		</select>
+	</div>
+	
+	<script src="scatter.js"></script>	
+</body>
+</html>

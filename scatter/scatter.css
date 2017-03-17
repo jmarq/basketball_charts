@@ -1,0 +1,48 @@
+body{
+	background-color: #222;
+  color: white;
+}
+
+
+svg {
+  font: 10px sans-serif;
+}
+
+path.line {
+  fill: none;
+  stroke: #666;
+  stroke-width: 0.0px;
+}
+
+text{
+  fill: white;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.x.axis line {
+	
+  stroke-width: 1.0px;
+  stroke: white;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line,
+.y.axis path {
+  fill: none;
+  stroke: white;
+}
+.y text, .x text{
+	fill: white;
+	font-size: 18px;
+	font-family: "serif";
+}
