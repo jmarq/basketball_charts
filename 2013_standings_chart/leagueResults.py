@@ -1,7 +1,11 @@
+# this code is obsolete, because the page it scrapes has changed its structure
+#  now the list of games is split up onto multiple pages by month
+
 import urllib
 from bs4 import BeautifulSoup as bs
 import json
 
+# this url only contains games from October now
 url="http://www.basketball-reference.com/leagues/NBA_2013_games.html"
 site=urllib.urlopen(url);
 content=site.read();
