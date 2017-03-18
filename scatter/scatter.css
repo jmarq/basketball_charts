@@ -12,12 +12,6 @@ svg {
   font: 10px sans-serif;
 }
 
-path.line {
-  fill: none;
-  stroke: #666;
-  stroke-width: 0.0px;
-}
-
 text{
   fill: #222;
 }
@@ -27,7 +21,6 @@ text{
 }
 
 .x.axis line {
-	
   stroke-width: 1.0px;
   stroke: #222;
 }
@@ -41,13 +34,31 @@ text{
   stroke: #222;
 }
 
-.y.axis line,
-.y.axis path {
+.y.axis line, .y.axis path {
   fill: none;
   stroke: #222;
 }
+
 .y text, .x text{
 	fill: #222;
 	font-size: 18px;
 	font-family: "sans-serif";
+}
+
+.x .tick line{
+  stroke-width: 1;
+}
+
+.y .tick line{
+  stroke-width: 1;
+}
+
+.team-node text{
+  font-size: 14px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.team-node circle{
+  stroke: #055;
 }
