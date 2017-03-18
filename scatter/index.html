@@ -11,6 +11,7 @@
 		<!-- 
 		["PF_RANK", "FGM_RANK", "FTA_RANK", "BLK", "MIN", "CFID", "TOV", "TEAM_ID", "FG3A_RANK", "REB", "TEAM_NAME", "REB_RANK", "CFPARAMS", "W_RANK", "FG3A", "AST", "FTM_RANK", "FG_PCT_RANK", "W_PCT_RANK", "PLUS_MINUS", "FG3M", "OREB", "L_RANK", "FT_PCT_RANK", "FGM", "PF", "PTS", "FGA", "FG3M_RANK", "FGA_RANK", "BLKA_RANK", "GP", "STL", "AST_RANK", "L", "PLUS_MINUS_RANK", "FTA", "W", "W_PCT", "DREB", "FTM", "PFD_RANK", "FT_PCT", "BLK_RANK", "PFD", "MIN_RANK", "OREB_RANK", "FG_PCT", "STL_RANK", "FG3_PCT_RANK", "FG3_PCT", "DREB_RANK", "TOV_RANK", "BLKA", "GP_RANK", "PTS_RANK"]
 		-->
+		<label for="x-axis-select">X Axis Variable</label>
 		<select name="x-axis" id="x-axis-select">
 			<option value="W"> Wins</option>
 			<option value="PTS">points/game</option>
@@ -34,6 +35,7 @@
 			<option value="FG_PCT">FG%</option>
 			<option value="FG3_PCT">3pt FG%</option>
 		</select>
+		<label for="y-axis-select">Y Axis Variable</label>
 		<select name="y-axis" id="y-axis-select">
 			<option value="W"> Wins</option>
 			<option selected value="PTS">points/game</option>
@@ -57,6 +59,8 @@
 			<option value="FG_PCT">FG%</option>
 			<option value="FG3_PCT">3pt FG%</option>
 		</select>
+	</div>
+	<div class="hover-info">
 	</div>
 	
 	<script src="scatter.js"></script>	

@@ -2,7 +2,7 @@
 
 
 //calculate dimensions of svg
-var margin = {top: 40, right: 140, bottom: 40, left: 40},
+var margin = {top: 40, right: 140, bottom: 60, left: 40},
 //width = 1860 - margin.left - margin.right,
 //height = 800 - margin.top - margin.bottom;
 width = 500;
@@ -21,17 +21,20 @@ var y = d3.scale.linear()
 
 //set up the axis functions, to be called on svg groups 
 var xAxis = d3.svg.axis()
-    .ticks(4)
+    .ticks(6)
     .scale(x)
-    .tickSize(-height);
+    .tickSize(-height)
+    .tickSize(4)
+    .orient("botton");
 
 var yAxis = d3.svg.axis()
-    .ticks(4)
+    .ticks(6)
     .scale(y)
-    //.ticks(4)
+    //.ticks(6)
     .tickSize(-width)
-	
-    .orient("right");
+    .tickSize(4)
+    .orient("right")
+    ;
 
 x_var = document.querySelector("#x-axis-select").value;
 y_var = document.querySelector("#y-axis-select").value;
@@ -68,13 +71,30 @@ d3.json("team_stats.json", function(err, data) {
 	  //.datum(data)// TA DA!!! Here we bind the data to the main svg group (g)
 	  //.on("click", click);
 
-	
+	function circleHover(d) {
+		var mouse_coords = d3.mouse(this);
+		console.log(mouse_coords)
+		d3.select(this).style("stroke","red");
+		var hoverInfo = document.querySelector(".hover-info")
+		hoverInfo.innerHTML = d.TEAM_NAME;
+		hoverInfo.style.top = mouse_coords[1]+margin.top+"px";
+		hoverInfo.style.left = mouse_coords[0]+margin.left+"px";
+
+
+	}
+	function circleUnhover(d) {
+		d3.select(this).style("stroke","#222");
+	}
+
+
 	circles = svg.selectAll("circle").data(chart_data);
 	circles.enter().append("circle")
      .attr("cx",function(d,i){return(x(d[x_var]))})
      .attr("cy",function(d,i){return(y(d[y_var]))})
      .attr("r",function(d,i){return(10)})
-     .style("fill","none").style("stroke",function(d,i){return("yellow");}).style("stroke-width",2);
+     .style("fill","none").style("stroke",function(d,i){return("#222");}).style("stroke-width",2)
+     .on("mouseover", circleHover)
+     .on("mouseleave", circleUnhover);
     circles.exit().remove();
 
 
@@ -83,8 +103,31 @@ d3.json("team_stats.json", function(err, data) {
 	svg.append("g")
 	  .attr("class", "y axis")
 	  .attr("transform", "translate(" + width + ",0)")
-	  .call(yAxis);
+	  .call(yAxis)
+	  .append("text")
+	  .attr("class", "y-label")
+	  .attr("x", height/2)
+	  .attr("y", -50)
+	  .style("text-anchor", "end")
+	  .style("color", "white")
+	  .style("transform","rotate(90deg)")
+	  .text(y_var);
 
+
+	//add the x axis
+	svg.append("g")
+	  .attr("class", "x axis")
+	  .attr("transform", "translate(0," + height + ")")
+	  .call(xAxis)
+	  .append("text")
+	  .attr("class", "x-label")
+	  .attr("x", width/2)
+	  .attr("y", 40 )
+	  .style("text-anchor", "end")
+	  .style("color", "white")
+	  .text(x_var);
+	  
+/*
 	svg.append("text")
 	  .attr("class", "x-label")
 	  .attr("x", width /2)
@@ -100,14 +143,8 @@ d3.json("team_stats.json", function(err, data) {
 	  .style("text-anchor", "end")
 	  .style("color", "white")
 	  .text(y_var);
+*/
 
-
-
-	//add the x axis
-	svg.append("g")
-	  .attr("class", "x axis")
-	  .attr("transform", "translate(0," + height + ")")
-	  .call(xAxis);
 
 	// On click, update the x-axis.
 	// the transition selection call/attr usage is interesting here, after setting the scale domain
@@ -135,7 +172,7 @@ d3.json("team_stats.json", function(err, data) {
 		 .attr("cx",function(d,i){return(x(d[x_var]))})
 		 .attr("cy",function(d,i){return(y(d[y_var]))})
 		 .attr("r",function(d,i){return(10)})
-		 .style("fill","none").style("stroke",function(d,i){return("yellow");}).style("stroke-width",2)
+		 .style("fill","none").style("stroke",function(d,i){return("#222");}).style("stroke-width",2)
 	}
 
 	adjustChart();
